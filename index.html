@@ -32,6 +32,7 @@
             return alert("セキュリティ対策にブロックされました。");
         }
         let sum = Number("0x" + v1) - Number("0x" + v2);
+        if (sum < 0) sum *= -1;
         document.getElementById("dif").value = "0x" + sum;
         navigator.clipboard.writeText("0x" + sum);
     });
