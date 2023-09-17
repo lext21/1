@@ -15,11 +15,15 @@
             <li>標的アドレスを入力</li>
             <input type="text" id="v2"><br>
             <input type="button" id="but" value="計算する">
+            <br>
+            <br>
+            <div>計算結果:</div>
+            <input type="text" id="dif" disabled>
         </ul>
     </body>
 </html>
 <script type="text/javascript">
-    document.getElementById("but").addEventListener("click", () => {
+    document.getElementById("but").addEventListener("click", function() {
         let v1 = document.getElementById("v1").value;
         let v2 = document.getElementById("v2").value;
         if (v1 == false || v2 == false) {
@@ -28,7 +32,7 @@
             return alert("セキュリティ対策にブロックされました。");
         }
         let sum = Number("0x" + v1) - Number("0x" + v2);
+        document.getElementById("dif").value = sum;
         navigator.clipboard.writeText("0x" + sum);
-        alert("クリップボードにコピーしました\nオフセット: 0x" + sum);
     });
 </script>
